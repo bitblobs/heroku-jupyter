@@ -1,15 +1,24 @@
 {
   "name": "jupyter",
-  "buildpacks": [
-    { "url": "https://github.com/pl31/heroku-buildpack-conda" }
-  ],
   "env": {
-    "JUPYTER_NOTEBOOK_PASSWORD": {
-      "description": "IMPORTANT! Set a secure password.",
-      "value": null
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable webhooks when in env mode",
+      "value": "ANYTHING"
+    },
+    "CHUNK_SIZE": {
+      "description": "should be an integer",
+      "value": "128",
+      "required": false
+    },
+    "ARIA_TWO_STARTED_PORT": {
+      "description": "should be an integer. The port on which aria2c daemon must start, and keep listening.",
+      "value": "6800",
+      "required": false
+    },
+    "EDIT_SLEEP_TIME_OUT": {
+      "description": "should be an integer. Number of seconds to wait before editing a message.",
+      "value": "15",
+      "required": false
     }
-  },
-  "addons": [
-    "heroku-postgresql:hobby-dev"
-  ]
+  }
 }
